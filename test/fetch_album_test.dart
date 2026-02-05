@@ -21,8 +21,10 @@ void main() {
       when(
         client.get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1')),
       ).thenAnswer(
-        (_) async =>
-            http.Response('{"userId": 1, "id": 2, "title": "mock"}', 200),
+        (_) async => http.Response(
+          '{"userId": 1, "id": 2, "title": "mock", "description":"esto es una prueba OK"}',
+          200,
+        ),
       );
 
       expect(await fetchAlbum(client), isA<Album>());
